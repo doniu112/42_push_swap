@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_custom_adaptive_algorithm.c                   :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/22 16:01:24 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/22 16:07:22 by dswietoc         ###   ########.fr       */
+/*   Created: 2026/08/02 14:18:36 by dswietoc          #+#    #+#             */
+/*   Updated: 2026/08/22 15:48:41 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_adaptive_algorithm()
+#include "push_swap.h"
+
+void	ft_error(void)
 {
-	
+	write(2, "Error\n", 6);
 }
