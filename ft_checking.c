@@ -28,7 +28,7 @@ int	is_number(char *str)
 	return (1);
 }
 
-long	ft_atol(const char *str)
+long	ft_atoi(const char *str)
 {
 	long	num;
 	int		sign;
