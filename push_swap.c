@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+<<<<<<< HEAD
+=======
+#include "push_swap.h"
+
+>>>>>>> 46a60618133d28b2c517badc5ad7db67103b59ce
 int	ft_check_strategy_selector(char *str)
 {
 	if (strcmp(str, "--simple") == 0)
@@ -36,5 +41,8 @@ int	ft_check_strategy_selector(char *str)
 
 int	ft_push_swap(int *argc, char **argv)
 {
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
 	
 }
