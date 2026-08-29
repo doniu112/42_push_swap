@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 10:55:56 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/22 15:48:41 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/29 13:03:44 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ int	ft_push_swap(int *argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	
 }
