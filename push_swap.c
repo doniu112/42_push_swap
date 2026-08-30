@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 10:55:56 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 14:25:35 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 15:24:46 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,31 @@ int	ft_check_strategy_selector(char *str, t_operations *op)
 {
 	if (strcmp(str, "--simple") == 0)
 	{
-		printf("Running simple algorithm\n");
+		/* Running simple algorithm */
 		op->strategy = STRATEGY_SIMPLE;
-		return (1);
+		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--medium") == 0)
 	{
-		printf("Running medium algorithm\n");
+		/* Running medium algorithm */
 		op->strategy = STRATEGY_MEDIUM;
-		return (1);
+		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--complex") == 0)
 	{
-		printf("Running complex algorithm\n");
+		/* Running complex algorithm */
 		op->strategy = STRATEGY_COMPLEX;
-		return (1);
+		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--adaptive") == 0)
 	{
-		printf("Running adaptive algorithm\n");
+		/* Running adaptive algorithm */
 		op->strategy = STRATEGY_ADAPTIVE;
-		return (1);
+		op->is_bench_on = false;
 	}
 }
 
-void	init_operations(t_operations *op)
+void	ft_init_operations(t_operations *op)
 {
 	op->sa = 0;
 	op->sb = 0;
@@ -64,5 +64,8 @@ int	ft_push_swap(int *argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_operations ops;
 
+	ft_init_operations(&ops);
+	ft_compute_disorder(stack_a);
 }

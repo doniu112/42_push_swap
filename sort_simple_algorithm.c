@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:48:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 13:56:10 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 15:41:24 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,10 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
 		ft_pa(a, b, op);
 	}
 	
+}
+
+int main(void)
+{
+	
+	return (0);
 }
