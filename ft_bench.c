@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 13:10:27 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 15:06:32 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 15:08:27 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,6 @@ static void ft_strategy_print(t_operations *op)
 	ft_putstr_fd("\n", 2);
 }
 
-static void	init_operations(t_operations *op)
-{
-	op->sa = 0;
-	op->sb = 0;
-	op->ss = 0;
-	op->pa = 0;
-	op->pb = 0;
-	op->ra = 0;
-	op->rb = 0;
-	op->rr = 0;
-	op->rra = 0;
-	op->rrb = 0;
-	op->rrr = 0;
-	op->total_ops = 0;
-	op->disorder = 0.444;
-	op->strategy = STRATEGY_ADAPTIVE;
-	op->is_adaptive = true;
-	op->is_bench_on = BENCH_MODE;
-}
-
 void	ft_bench(t_operations *op)
 {
 
@@ -114,11 +94,32 @@ void	ft_bench(t_operations *op)
 	ft_first_bench_line(op);
 	ft_second_bench_line(op);
 }
-int main(void)
-{
-	t_operations	op;
 
-	init_operations(&op);
-	ft_bench(&op);
-	return (0);
-}
+// static void	init_operations(t_operations *op)
+// {
+// 	op->sa = 0;
+// 	op->sb = 0;
+// 	op->ss = 0;
+// 	op->pa = 0;
+// 	op->pb = 0;
+// 	op->ra = 0;
+// 	op->rb = 0;
+// 	op->rr = 0;
+// 	op->rra = 0;
+// 	op->rrb = 0;
+// 	op->rrr = 0;
+// 	op->total_ops = 0;
+// 	op->disorder = 0.444;
+// 	op->strategy = STRATEGY_ADAPTIVE;
+// 	op->is_adaptive = true;
+// 	op->is_bench_on = BENCH_MODE;
+// }
+
+// int main(void)
+// {
+// 	t_operations	op;
+
+// 	init_operations(&op);
+// 	ft_bench(&op);
+// 	return (0);
+// }
