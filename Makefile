@@ -6,15 +6,13 @@
 #    By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/01 18:48:18 by dswietoc          #+#    #+#              #
-#    Updated: 2026/08/02 10:47:11 by dswietoc         ###   ########.fr        #
+#    Updated: 2026/08/30 12:22:24 by dswietoc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-
 FLAGS = -Wall -Wextra -Werror
-
-NAME = libpushswap.a
+NAME = push_swap
 
 SRCS = 
 

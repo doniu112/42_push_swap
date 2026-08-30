@@ -6,13 +6,13 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:59:15 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/29 13:03:38 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 13:00:09 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_compute_disorder(t_stack *a)
+double	ft_compute_disorder(t_stack *a, t_operations *op)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -36,5 +36,6 @@ int	ft_compute_disorder(t_stack *a)
 	}
 	if (total_pairs == 0)
 		return (0.0);
-	return ((double)mistakes / total_pairs);
+	op->disorder = (double)mistakes / total_pairs;
+	return (op->disorder);
 }

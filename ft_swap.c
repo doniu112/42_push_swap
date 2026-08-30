@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 13:03:13 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/29 13:03:15 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 13:38:37 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,30 @@ static void	ft_swap(t_stack **stack)
 }
 
 /* Swap the first two elements of stack a. */
-void	ft_sa(t_stack **stack_a)
+void	ft_sa(t_stack **stack_a, t_operations *op)
 {
 	ft_swap(stack_a);
+	op->sa++;
+	op->total_ops++;
 	write(1, "sa\n", 3);
+
 }
 
 /* Swap the first two elements of stack b. */
-void	ft_sb(t_stack **stack_b)
+void	ft_sb(t_stack **stack_b, t_operations *op)
 {
 	ft_swap(stack_b);
+	op->sb++;
+	op->total_ops++;
 	write(1, "sb\n", 3);
 }
 
 /* Perform sa and sb. */
-void	ft_ss(t_stack **stack_a, t_stack **stack_b)
+void	ft_ss(t_stack **stack_a, t_stack **stack_b, t_operations *op)
 {
 	ft_swap(stack_a);
 	ft_swap(stack_b);
+	op->ss++;
+	op->total_ops++;
 	write(1, "ss\n", 3);
 }
