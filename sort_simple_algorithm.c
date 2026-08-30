@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:48:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 15:41:24 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:09:34 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,69 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
 	
 }
 
-int main(void)
-{
-	
-	return (0);
-}
+// int	main(void)
+// {
+// 	int				size;
+// 	int				i;
+// 	t_stack			*a;
+// 	t_stack			*b;
+// 	t_stack			*new;
+// 	t_stack			*last;
+// 	t_stack			*tmp;
+// 	t_operations	op = {0};
+// 	int	values[] = {
+// 	327, 14, 486, 92, 251, 403, 67, 118, 359, 221,
+// 	5, 474, 188, 310, 76, 444, 133, 299, 21, 395,
+// 	156, 268, 49, 417, 102, 341, 230, 9, 465, 175,
+// 	287, 58, 376, 124, 498, 212, 33, 451, 196, 320,
+// 	84, 365, 143, 279, 17, 432, 109, 244, 390, 61
+// };
+
+// 	a = NULL;
+// 	b = NULL;
+// 	last = NULL;
+// 	size = sizeof(values) / sizeof(values[0]);
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		new = malloc(sizeof(t_stack));
+// 		if (!new)
+// 			return (1);
+// 		new->value = values[i];
+// 		new->next = NULL;
+// 		if (!a)
+// 			a = new;
+// 		else
+// 			last->next = new;
+// 		last = new;
+// 		i++;
+// 	}
+
+// 	printf("BEFORE:\n");
+// 	tmp = a;
+// 	while (tmp)
+// 	{
+// 		printf("%d ", tmp->value);
+// 		tmp = tmp->next;
+// 	}
+// 	printf("\n");
+
+// 	ft_simple_sort(&a, &b, &op);
+
+// 	printf("AFTER:\n");
+// 	tmp = a;
+// 	while (tmp)
+// 	{
+// 		printf("%d ", tmp->value);
+// 		tmp = tmp->next;
+// 	}
+// 	printf("\n");
+
+// 	while (a)
+// 	{
+// 		tmp = a->next;
+// 		free(a);
+// 		a = tmp;
+// 	}
+// 	return (0);
+// }
