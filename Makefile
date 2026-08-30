@@ -10,23 +10,30 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = push_swap
+
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-FLAGS = -Wall -Wextra -Werror
-
-NAME = libpushswap.a
-
-SRCS = 
+SRCS = push_swap.c \
+	   input_validation.c \
+	   ft_checking.c \
+	   push_swap_utils.c \
+	   ft_push.c \
+	   ft_reverse_rotate.c \
+	   ft_rotate.c \
+	   ft_swap.c \
+	   disorder_metric.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c
-	$(CC) $(FLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
@@ -34,6 +41,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re

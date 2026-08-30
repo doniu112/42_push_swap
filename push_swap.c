@@ -12,34 +12,55 @@
 
 #include "push_swap.h"
 
+/*
+** Return the selected strategy.
+**
+** 1 - simple
+** 2 - medium
+** 3 - complex
+** 4 - adaptive
+** 0 - invalid strategy
+*/
 int	ft_check_strategy_selector(char *str)
 {
 	if (strcmp(str, "--simple") == 0)
-	{
-		printf("Running simple algorithm\n");
 		return (1);
-	}
-	else if (strcmp(str, "--medium") == 0)
-	{
-		printf("Running medium algorithm\n");
+	if (strcmp(str, "--medium") == 0)
 		return (2);
-	}
-	else if (strcmp(str, "--complex") == 0)
-	{
-		printf("Running complex algorithm\n");
+	if (strcmp(str, "--complex") == 0)
 		return (3);
-	}
-	else if (strcmp(str, "--adaptive") == 0)
-	{
-		printf("Running adaptive algorithm\n");
+	if (strcmp(str, "--adaptive") == 0)
 		return (4);
-	}
+	return (0);
 }
 
-int	ft_push_swap(int *argc, char **argv)
+/*
+** Print the required error message.
+*/
+static void	ft_print_error(void)
+{
+	write(2, "Error\n", 6);
+}
+
+/*
+** Program entry point.
+**
+** stack_a contains the input numbers.
+** stack_b starts empty as required by the project.
+*/
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	
+	stack_a = NULL;
+	stack_b = NULL;
+	if (!ft_validate_input(argc, argv, &stack_a))
+	{
+		ft_print_error();
+		return (1);
+	}
+	(void)stack_b;
+	ft_free_stack(&stack_a);
+	return (0);
 }
