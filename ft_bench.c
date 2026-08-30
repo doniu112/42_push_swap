@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 13:10:27 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 14:49:59 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 15:06:32 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,19 +89,19 @@ static void	init_operations(t_operations *op)
 	op->rrb = 0;
 	op->rrr = 0;
 	op->total_ops = 0;
-	op->disorder = 0;
+	op->disorder = 0.444;
 	op->strategy = STRATEGY_ADAPTIVE;
 	op->is_adaptive = true;
 	op->is_bench_on = BENCH_MODE;
 }
 
-void	ft_bench()
+void	ft_bench(t_operations *op)
 {
-	t_operations	*op;
 
-	init_operations(op);
 	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putnbr_fd(op->disorder, 2);
+	ft_putnbr_fd(op->disorder * 10000 / 100, 2);
+	ft_putstr_fd(".", 2);
+	ft_putnbr_fd((int)(op->disorder * 10000) % 100, 2);
 	ft_putstr_fd("%", 2);
 	ft_putstr_fd("\n", 2);
 
@@ -116,6 +116,9 @@ void	ft_bench()
 }
 int main(void)
 {
-	ft_bench();
+	t_operations	op;
+
+	init_operations(&op);
+	ft_bench(&op);
 	return (0);
 }
