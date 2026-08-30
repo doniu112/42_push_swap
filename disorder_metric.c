@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:59:15 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 16:02:34 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:11:25 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ double	ft_compute_disorder(t_stack *a)
 // 	size = sizeof(numbers)/sizeof(numbers[0]);
 // 	stack_a = init_stack(numbers, size);
 // 	disorder = ft_compute_disorder(stack_a);
-
+//	
 // 	printf("disorder : %f", disorder);
+//	free(stack_a);
+//	return (0);
 // }
