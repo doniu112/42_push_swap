@@ -6,11 +6,9 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 13:03:13 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 13:38:37 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 11:43:49 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "push_swap.h"
 
@@ -36,7 +34,6 @@ void	ft_sa(t_stack **stack_a, t_operations *op)
 	op->sa++;
 	op->total_ops++;
 	write(1, "sa\n", 3);
-
 }
 
 /* Swap the first two elements of stack b. */

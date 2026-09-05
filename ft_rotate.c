@@ -6,10 +6,9 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 13:03:22 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 13:38:37 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 11:53:40 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 

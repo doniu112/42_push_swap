@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:48:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 16:09:34 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 11:55:15 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_stack_size(t_stack *stack)
 	}
 	return (size);
 }
-
 
 int	ft_find_min_position(t_stack *stack)
 {
@@ -51,7 +50,7 @@ int	ft_find_min_position(t_stack *stack)
 void	ft_move_to_top(t_stack **a, t_operations *op)
 {
 	int	pos;
-	int size;
+	int	size;
 
 	if (!a || !*a)
 		return ;
@@ -59,7 +58,7 @@ void	ft_move_to_top(t_stack **a, t_operations *op)
 	size = ft_stack_size(*a);
 	if (pos <= size / 2)
 	{
-		while (pos>0)
+		while (pos > 0)
 		{
 			ft_ra(a, op);
 			pos--;
@@ -67,13 +66,12 @@ void	ft_move_to_top(t_stack **a, t_operations *op)
 	}
 	else
 	{
-		while  (pos<size)
+		while (pos < size)
 		{
 			ft_rra(a, op);
 			pos++;
 		}
 	}
-	
 }
 
 void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
@@ -87,7 +85,6 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
 	{
 		ft_pa(a, b, op);
 	}
-	
 }
 
 // int	main(void)

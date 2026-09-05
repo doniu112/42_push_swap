@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 10:55:56 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 15:24:46 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 11:59:20 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,21 @@ int	ft_check_strategy_selector(char *str, t_operations *op)
 {
 	if (strcmp(str, "--simple") == 0)
 	{
-		/* Running simple algorithm */
 		op->strategy = STRATEGY_SIMPLE;
 		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--medium") == 0)
 	{
-		/* Running medium algorithm */
 		op->strategy = STRATEGY_MEDIUM;
 		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--complex") == 0)
 	{
-		/* Running complex algorithm */
 		op->strategy = STRATEGY_COMPLEX;
 		op->is_bench_on = false;
 	}
 	else if (strcmp(str, "--adaptive") == 0)
 	{
-		/* Running adaptive algorithm */
 		op->strategy = STRATEGY_ADAPTIVE;
 		op->is_bench_on = false;
 	}
@@ -62,9 +58,9 @@ void	ft_init_operations(t_operations *op)
 
 int	ft_push_swap(int *argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	t_operations ops;
+	t_operations	ops;
+	t_stack			*stack_a;
+	t_stack			*stack_b;
 
 	ft_init_operations(&ops);
 	ft_compute_disorder(stack_a);

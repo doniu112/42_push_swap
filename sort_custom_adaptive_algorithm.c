@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 16:01:24 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/08/30 13:56:10 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 11:52:22 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_choose_algorithm(t_stack **a, t_stack **b, t_operations *op)
 {
 	if (op->strategy == STRATEGY_ADAPTIVE)
+	{
 		if (op->disorder < 0.2)
 		{
 			op->strategy = STRATEGY_SIMPLE;
@@ -24,4 +25,5 @@ void	ft_choose_algorithm(t_stack **a, t_stack **b, t_operations *op)
 			op->strategy = STRATEGY_MEDIUM;
 		if (op->disorder >= 0.5)
 			op->strategy = STRATEGY_COMPLEX;
+	}
 }
