@@ -53,63 +53,46 @@ int	ft_is_int(char *str)
 }
 
 /*
-** Check whether value already exists in the stack.
+** Check for duplicates and add the value to the top of the stack.
 */
-int	ft_has_duplicate(t_stack *stack, int value)
+static int	ft_add_value(t_stack **stack, int value)
 {
-	while (stack)
-	{
-		if (stack->value == value)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
-
-/*
-** Add one value to the end of the stack.
-*/
-static int	ft_add_back(t_stack **stack, int value)
-{
-	t_stack	*new_node;
 	t_stack	*current;
+	t_stack	*new_node;
 
+	current = *stack;
+	while (current)
+	{
+		if (current->value == value)
+			return (0);
+		current = current->next;
+	}
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		return (0);
 	new_node->value = value;
-	new_node->next = NULL;
-	if (!*stack)
-	{
-		*stack = new_node;
-		return (1);
-	}
-	current = *stack;
-	while (current->next)
-		current = current->next;
-	current->next = new_node;
+	new_node->next = *stack;
+	*stack = new_node;
 	return (1);
 }
 
 /*
-** Validate all numbers and create the initial stack_a.
+** Validate numbers and create stack_a in the original order.
 */
 int	ft_create_stack(t_stack **stack_a, int argc, char **argv)
 {
 	int	i;
 	int	value;
 
-	i = 2;
-	while (i < argc)
+	i = argc - 1;
+	while (i >= 2)
 	{
 		if (!ft_is_number(argv[i]) || !ft_is_int(argv[i]))
 			return (0);
 		value = (int)ft_atoi(argv[i]);
-		if (ft_has_duplicate(*stack_a, value))
+		if (!ft_add_value(stack_a, value))
 			return (0);
-		if (!ft_add_back(stack_a, value))
-			return (0);
-		i++;
+		i--;
 	}
 	return (1);
 }

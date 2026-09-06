@@ -35,11 +35,14 @@ int	ft_check_strategy_selector(char *str)
 }
 
 /*
-** Print the required error message.
+** Print the required error message and exit.
 */
-static void	ft_print_error(void)
+static void	ft_print_error(t_stack **stack_a, t_stack **stack_b)
 {
 	write(2, "Error\n", 6);
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	exit(1);
 }
 
 /*
@@ -56,11 +59,8 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!ft_validate_input(argc, argv, &stack_a))
-	{
-		ft_print_error();
-		return (1);
-	}
-	(void)stack_b;
+		ft_print_error(&stack_a, &stack_b);
 	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 	return (0);
 }
