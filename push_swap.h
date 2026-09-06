@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 19:11:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 12:20:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 16:28:39 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -73,9 +74,12 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op);
 
 /* Simple medium */
 void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op);
+int	ft_stack_size(t_stack *stack);
 
 /* Simple complex */
 /* Simple adaptive */
+void	ft_adaptive_algorithm(t_stack **a, t_stack **b, t_operations *op);
+
 /* Bench */
 
 /* UTILS */
@@ -93,15 +97,14 @@ double	ft_compute_disorder(t_stack *a);
 int		ft_check_strategy_selector(char *str, t_operations *op);
 int		ft_is_number(char *str);
 int		ft_is_int(char *str);
-int		ft_has_duplicate(t_stack *stack, int value);
 int		ft_create_stack(t_stack **stack_a, int argc, char **argv);
 int		ft_validate_input(int argc, char **argv, t_stack **stack_a);
 
 /* Existing utility functions */
 long	ft_atoi(const char *str);
 void	ft_free_stack(t_stack **stack);
-void	ft_pustr_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
+int	ft_strcmp(char *s1, char *s2);
 
 #endif

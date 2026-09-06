@@ -6,7 +6,7 @@
 #    By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/01 18:48:18 by dswietoc          #+#    #+#              #
-#    Updated: 2026/09/06 12:14:07 by dswietoc         ###   ########.fr        #
+#    Updated: 2026/09/06 13:44:50 by dswietoc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS = push_swap.c \
 	   ft_rotate.c \
 	   ft_swap.c \
 	   disorder_metric.c \
-	   sort_medium_algorithm.c
+	   sort_medium_algorithm.c \
+	   sort_custom_adaptive_algorithm.c
 
 OBJS = $(SRCS:.c=.o)
 
