@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/06 10:21:47 by ryakubov          #+#    #+#             */
-/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:11:16 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_get_rank(t_stack *a, t_stack *b, int value)
 ** Push one chunk from stack a to stack b.
 */
 static void	ft_push_chunk(t_stack **a, t_stack **b,
-		int start, int end)
+		int start, int end, t_operations *op)
 {
 	int	rank;
 	int	pushed;
@@ -68,20 +68,20 @@ static void	ft_push_chunk(t_stack **a, t_stack **b,
 		rank = ft_get_rank(*a, *b, (*a)->value);
 		if (rank >= start && rank <= end)
 		{
-			ft_pb(a, b);
+			ft_pb(a, b, op);
 			pushed++;
 			if (rank < half)
-				ft_rb(b);
+				ft_rb(b, op);
 		}
 		else
-			ft_ra(a);
+			ft_ra(a, op);
 	}
 }
 
 /*
 ** Move the largest element of stack b to the top.
 */
-static void	ft_rotate_max(t_stack **a, t_stack **b)
+static void	ft_rotate_max(t_stack **a, t_stack **b, t_operations *op)
 {
 	int	rank;
 	int	size;
@@ -92,14 +92,14 @@ static void	ft_rotate_max(t_stack **a, t_stack **b)
 		rank = ft_get_rank(*a, *b, (*b)->value);
 		if (rank == size - 1)
 			break ;
-		ft_rb(b);
+		ft_rb(b, op);
 	}
 }
 
 /*
 ** Sort stack a using sqrt(n) value chunks.
 */
-void	ft_medium_algorithm(t_stack **a, t_stack **b)
+void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op)
 {
 	int	size;
 	int	chunk;
@@ -118,12 +118,12 @@ void	ft_medium_algorithm(t_stack **a, t_stack **b)
 		end = start + chunk - 1;
 		if (end >= size)
 			end = size - 1;
-		ft_push_chunk(a, b, start, end);
+		ft_push_chunk(a, b, start, end, op);
 		start += chunk;
 	}
 	while (*b)
 	{
-		ft_rotate_max(a, b);
-		ft_pa(a, b);
+		ft_rotate_max(a, b, op);
+		ft_pa(a, b, op);
 	}
 }

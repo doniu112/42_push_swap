@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 11:08:59 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:43:02 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,65 @@ void	ft_free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	ft_error(void)
+long	ft_atoi(const char *str)
 {
-    t_stack *current;
-    t_stack *next;
+	long	num;
+	int		sign;
 
-    if (stack == NULL || *stack == NULL)
-        return;
+	num = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (num * sign);
+}
 
-    current = *stack;
-    while (current != NULL)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-    *stack = NULL;
+void        ft_pustr_fd(char *s, int fd)
+{
+        while (*s)
+        {
+                write(fd, s, 1);
+                s++;
+        }
+}
+
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putstr_fd('-', fd);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putstr_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putstr_fd(n + '0', fd);
+}
+
+/*
+** Print the required error message and exit.
+*/
+static void	ft_print_error(t_stack **stack_a, t_stack **stack_b)
+{
+	write(2, "Error\n", 6);
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	exit(1);
 }

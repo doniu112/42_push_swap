@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryakubov <ryakubov@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 08:50:34 by ryakubov          #+#    #+#             */
-/*   Updated: 2026/08/30 08:50:34 by ryakubov         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:37:40 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

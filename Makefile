@@ -6,7 +6,7 @@
 #    By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/01 18:48:18 by dswietoc          #+#    #+#              #
-#    Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr        #
+#    Updated: 2026/09/06 12:14:07 by dswietoc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
 	   input_validation.c \
-	   ft_checking.c \
 	   push_swap_utils.c \
 	   ft_push.c \
 	   ft_reverse_rotate.c \

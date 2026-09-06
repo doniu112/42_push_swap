@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 19:11:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:20:39 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	ft_move_to_top(t_stack **a, t_operations *op);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op);
 
 /* Simple medium */
+void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op);
+
 /* Simple complex */
 /* Simple adaptive */
 /* Bench */
@@ -88,7 +90,7 @@ double	ft_compute_disorder(t_stack *a);
 # define BENCH_MODE 		false
 
 /* Input validation */
-int		ft_check_strategy_selector(char *str);
+int		ft_check_strategy_selector(char *str, t_operations *op);
 int		ft_is_number(char *str);
 int		ft_is_int(char *str);
 int		ft_has_duplicate(t_stack *stack, int value);
@@ -99,12 +101,7 @@ int		ft_validate_input(int argc, char **argv, t_stack **stack_a);
 long	ft_atoi(const char *str);
 void	ft_free_stack(t_stack **stack);
 void	ft_pustr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
-
-/* Sorting algorithms */
-void	ft_medium_algorithm(t_stack **a, t_stack **b);
-
-/* Disorder metric */
-int		ft_compute_disorder(t_stack *a);
 
 #endif
