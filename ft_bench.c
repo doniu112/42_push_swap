@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 13:10:27 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/05 11:53:26 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/05 12:33:39 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_bench(t_operations *op)
 // 	op->rrb = 0;
 // 	op->rrr = 0;
 // 	op->total_ops = 0;
-// 	op->disorder = 0.572727;
+// 	op->disorder = 0.512727;
 // 	op->strategy = STRATEGY_ADAPTIVE;
 // 	op->is_adaptive = true;
 // 	op->is_bench_on = BENCH_MODE;
