@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 19:11:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 12:20:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 13:44:41 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op);
 
 /* Simple complex */
 /* Simple adaptive */
+void	ft_adaptive_algorithm(t_stack **a, t_stack **b, t_operations *op);
+
 /* Bench */
 
 /* UTILS */
@@ -102,6 +104,6 @@ long	ft_atoi(const char *str);
 void	ft_free_stack(t_stack **stack);
 void	ft_pustr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
+int	ft_strcmp(char *s1, char *s2);
 
 #endif

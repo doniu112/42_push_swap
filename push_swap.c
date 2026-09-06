@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 10:55:56 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 13:22:32 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 13:40:10 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 int	ft_check_strategy_selector(char *str, t_operations *op)
 {
-	if (strcmp(str, "--simple") == 0)
+	if (ft_strcmp(str, "--simple") == 0)
 	{
 		op->strategy = STRATEGY_SIMPLE;
 		op->is_bench_on = false;
 	}
-	else if (strcmp(str, "--medium") == 0)
+	else if (ft_strcmp(str, "--medium") == 0)
 	{
 		op->strategy = STRATEGY_MEDIUM;
 		op->is_bench_on = false;
 	}
-	else if (strcmp(str, "--complex") == 0)
+	else if (ft_strcmp(str, "--complex") == 0)
 	{
 		op->strategy = STRATEGY_COMPLEX;
 		op->is_bench_on = false;
 	}
-	else if (strcmp(str, "--adaptive") == 0)
+	else if (ft_strcmp(str, "--adaptive") == 0)
 	{
 		op->strategy = STRATEGY_ADAPTIVE;
 		op->is_bench_on = false;
