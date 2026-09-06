@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 11:08:59 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/05 11:42:44 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,18 @@ void	ft_free_stack(t_stack **stack)
 
 void	ft_error(void)
 {
-	ft_putstr_fd("ERROR\n", 2);
-	exit(1);
+    t_stack *current;
+    t_stack *next;
+
+    if (stack == NULL || *stack == NULL)
+        return;
+
+    current = *stack;
+    while (current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *stack = NULL;
 }
-
-// long	ft_atoi(const char *str)
-// {
-// 	long	num;
-// 	int		sign;
-
-// 	num = 0;
-// 	sign = 1;
-// 	if (*str == '-' || *str == '+')
-// 	{
-// 		if (*str == '-')
-// 			sign = -1;
-// 		str++;
-// 	}
-// 	while (*str >= '0' && *str <= '9')
-// 	{
-// 		num = num * 10 + (*str - '0');
-// 		str++;
-// 	}
-// 	return (num * sign);
-// }

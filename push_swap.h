@@ -6,16 +6,17 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 19:11:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/05 11:56:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./Libft/libft.h"
-
 # include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <string.h>
 # include <stdbool.h>
 # include <stdlib.h>
 
@@ -85,5 +86,25 @@ double	ft_compute_disorder(t_stack *a);
 # define STRATEGY_COMPLEX 	3
 
 # define BENCH_MODE 		false
+
+/* Input validation */
+int		ft_check_strategy_selector(char *str);
+int		ft_is_number(char *str);
+int		ft_is_int(char *str);
+int		ft_has_duplicate(t_stack *stack, int value);
+int		ft_create_stack(t_stack **stack_a, int argc, char **argv);
+int		ft_validate_input(int argc, char **argv, t_stack **stack_a);
+
+/* Existing utility functions */
+long	ft_atoi(const char *str);
+void	ft_free_stack(t_stack **stack);
+void	ft_pustr_fd(char *s, int fd);
+
+
+/* Sorting algorithms */
+void	ft_medium_algorithm(t_stack **a, t_stack **b);
+
+/* Disorder metric */
+int		ft_compute_disorder(t_stack *a);
 
 #endif
