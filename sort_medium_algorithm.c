@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/06 10:21:47 by ryakubov          #+#    #+#             */
-/*   Updated: 2026/09/06 12:11:16 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 15:29:57 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op)
 	int	chunk;
 	int	start;
 	int	end;
-
+	op->disorder = ft_compute_disorder(a);
 	size = ft_stack_size(*a);
 	if (size < 2)
 		return ;

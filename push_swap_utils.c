@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 11:08:59 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 13:44:52 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 14:08:28 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ long	ft_atoi(const char *str)
 	return (num * sign);
 }
 
-void        ft_pustr_fd(char *s, int fd)
+void        ft_putstr_fd(char *s, int fd)
 {
         while (*s)
         {

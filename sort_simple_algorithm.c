@@ -6,7 +6,7 @@
 /*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 18:48:26 by dswietoc          #+#    #+#             */
-/*   Updated: 2026/09/06 12:05:39 by dswietoc         ###   ########.fr       */
+/*   Updated: 2026/09/06 13:51:57 by dswietoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	ft_move_to_top(t_stack **a, t_operations *op)
 
 void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
 {
+	op->disorder = ft_compute_disorder(a);
 	while (*a)
 	{
 		ft_move_to_top(a, op);
