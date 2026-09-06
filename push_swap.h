@@ -50,6 +50,9 @@ void	ft_sa(t_stack **stack_a);
 void	ft_sb(t_stack **stack_b);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b);
 
+/* Sorting algorithms */
+void	ft_medium_algorithm(t_stack **a, t_stack **b);
+
 /* Disorder metric */
 int		ft_compute_disorder(t_stack *a);
 

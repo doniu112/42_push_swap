@@ -46,20 +46,29 @@ static void	ft_print_error(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*
+** Run the selected sorting algorithm.
+*/
+static void	ft_run_strategy(int strategy, t_stack **a, t_stack **b)
+{
+	if (strategy == 2)
+		ft_medium_algorithm(a, b);
+}
+
+/*
 ** Program entry point.
-**
-** stack_a contains the input numbers.
-** stack_b starts empty as required by the project.
 */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		strategy;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!ft_validate_input(argc, argv, &stack_a))
 		ft_print_error(&stack_a, &stack_b);
+	strategy = ft_check_strategy_selector(argv[1]);
+	ft_run_strategy(strategy, &stack_a, &stack_b);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
 	return (0);

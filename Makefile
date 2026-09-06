@@ -23,7 +23,8 @@ SRCS = push_swap.c \
 	   ft_reverse_rotate.c \
 	   ft_rotate.c \
 	   ft_swap.c \
-	   disorder_metric.c
+	   disorder_metric.c \
+	   sort_medium_algorithm.c
 
 OBJS = $(SRCS:.c=.o)
 
