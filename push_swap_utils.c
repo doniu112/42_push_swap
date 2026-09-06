@@ -28,24 +28,3 @@ void ft_free_stack(t_stack **stack)
     }
     *stack = NULL;
 }
-
-long        ft_atoi(const char *str)
-{
-        long	num;
-        int		sign;
-
-        num = 0;
-        sign = 1;
-        if (*str == '-' || *str == '+')
-        {
-                if (*str == '-')
-                        sign = -1;
-                str++;
-        }
-        while (*str >= '0' && *str <= '9')
-        {
-                num = num * 10 + (*str - '0');
-                str++;
-        }
-        return (num * sign);
-}
