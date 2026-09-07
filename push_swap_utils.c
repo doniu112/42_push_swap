@@ -1,7 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dswietoc <dswietoc@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/29 11:08:59 by dswietoc          #+#    #+#             */
+/*   Updated: 2026/09/06 14:08:28 by dswietoc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*next;
 
-void        ft_pustr_fd(char *s, int fd)
+	if (stack == NULL || *stack == NULL)
+		return ;
+	current = *stack;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
+}
+
+long	ft_atoi(const char *str)
+{
+	long	num;
+	int		sign;
+
+	num = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (num * sign);
+}
+
+void        ft_putstr_fd(char *s, int fd)
 {
         while (*s)
         {
@@ -11,20 +60,48 @@ void        ft_pustr_fd(char *s, int fd)
 }
 
 
-void ft_free_stack(t_stack **stack)
+void	ft_putnbr_fd(int n, int fd)
 {
-    t_stack *current;
-    t_stack *next;
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putstr_fd('-', fd);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putstr_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putstr_fd(n + '0', fd);
+}
 
-    if (stack == NULL || *stack == NULL)
-        return;
+/*
+** Print the required error message and exit.
+*/
+static void	ft_print_error(t_stack **stack_a, t_stack **stack_b)
+{
+	write(2, "Error\n", 6);
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	exit(1);
+}
 
-    current = *stack;
-    while (current != NULL)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-    *stack = NULL;
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			break ;
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
