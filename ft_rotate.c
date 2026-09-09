@@ -13,13 +13,13 @@
 #include "push_swap.h"
 
 /* Move the first element to the bottom of the stack. */
-static void	ft_rotate(t_stack **stack)
+static int	ft_rotate(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*current;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return ;
+		return (0);
 	current = *stack;
 	while (current->next)
 		current = current->next;
@@ -28,12 +28,14 @@ static void	ft_rotate(t_stack **stack)
 	*stack = (*stack)->next;
 	last->next = current;
 	current->next = NULL;
+	return (1);
 }
 
 /* Rotate stack a upwards by one position. */
 void	ft_ra(t_stack **stack_a, t_operations *op)
 {
-	ft_rotate(stack_a);
+	if (!ft_rotate(stack_a))
+		return ;
 	op->ra++;
 	op->total_ops++;
 	write(1, "ra\n", 3);
@@ -42,7 +44,8 @@ void	ft_ra(t_stack **stack_a, t_operations *op)
 /* Rotate stack b upwards by one position. */
 void	ft_rb(t_stack **stack_b, t_operations *op)
 {
-	ft_rotate(stack_b);
+	if (!ft_rotate(stack_b))
+		return ;
 	op->rb++;
 	op->total_ops++;
 	write(1, "rb\n", 3);
@@ -51,8 +54,13 @@ void	ft_rb(t_stack **stack_b, t_operations *op)
 /* Perform ra and rb without printing their individual names. */
 void	ft_rr(t_stack **stack_a, t_stack **stack_b, t_operations *op)
 {
-	ft_rotate(stack_a);
-	ft_rotate(stack_b);
+	int	moved_a;
+	int	moved_b;
+
+	moved_a = ft_rotate(stack_a);
+	moved_b = ft_rotate(stack_b);
+	if (!moved_a && !moved_b)
+		return ;
 	op->rr++;
 	op->total_ops++;
 	write(1, "rr\n", 3);

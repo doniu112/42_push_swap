@@ -13,24 +13,26 @@
 #include "push_swap.h"
 
 /* Swap the first two elements at the top of a stack. */
-static void	ft_swap(t_stack **stack)
+static int	ft_swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return ;
+		return (0);
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
 	second->next = first;
 	*stack = second;
+	return (1);
 }
 
 /* Swap the first two elements of stack a. */
 void	ft_sa(t_stack **stack_a, t_operations *op)
 {
-	ft_swap(stack_a);
+	if (!ft_swap(stack_a))
+		return ;
 	op->sa++;
 	op->total_ops++;
 	write(1, "sa\n", 3);
@@ -39,7 +41,8 @@ void	ft_sa(t_stack **stack_a, t_operations *op)
 /* Swap the first two elements of stack b. */
 void	ft_sb(t_stack **stack_b, t_operations *op)
 {
-	ft_swap(stack_b);
+	if (!ft_swap(stack_b))
+		return ;
 	op->sb++;
 	op->total_ops++;
 	write(1, "sb\n", 3);
@@ -48,8 +51,13 @@ void	ft_sb(t_stack **stack_b, t_operations *op)
 /* Perform sa and sb. */
 void	ft_ss(t_stack **stack_a, t_stack **stack_b, t_operations *op)
 {
-	ft_swap(stack_a);
-	ft_swap(stack_b);
+	int	moved_a;
+	int	moved_b;
+
+	moved_a = ft_swap(stack_a);
+	moved_b = ft_swap(stack_b);
+	if (!moved_a && !moved_b)
+		return ;
 	op->ss++;
 	op->total_ops++;
 	write(1, "ss\n", 3);

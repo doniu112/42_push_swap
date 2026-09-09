@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_stack_size(t_stack *stack)
-{
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
-}
-
 int	ft_find_min_position(t_stack *stack)
 {
 	int	min;
@@ -76,7 +63,6 @@ void	ft_move_to_top(t_stack **a, t_operations *op)
 
 void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op)
 {
-	op->disorder = ft_compute_disorder(a);
 	while (*a)
 	{
 		ft_move_to_top(a, op);

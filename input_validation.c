@@ -12,10 +12,6 @@
 
 #include "push_swap.h"
 
-/*
-** Check whether the argument contains only digits,
-** with an optional leading '+' or '-'.
-*/
 int	ft_is_number(char *str)
 {
 	int	i;
@@ -36,19 +32,26 @@ int	ft_is_number(char *str)
 	return (1);
 }
 
-/*
-** Check whether the number fits into an int.
-**
-** The number is checked only after ft_is_number(),
-** therefore ft_atoi() receives a valid numeric string.
-*/
 int	ft_is_int(char *str)
 {
-	long	value;
+	long long	number;
+	long long	limit;
 
-	value = ft_atoi(str);
-	if (value < INT_MIN || value > INT_MAX)
+	if (!ft_is_number(str))
 		return (0);
+	limit = INT_MAX;
+	if (*str == '-')
+		limit = -(long long)INT_MIN;
+	if (*str == '+' || *str == '-')
+		str++;
+	number = 0;
+	while (*str)
+	{
+		number = number * 10 + (*str - '0');
+		if (number > limit)
+			return (0);
+		str++;
+	}
 	return (1);
 }
 
@@ -71,45 +74,27 @@ static int	ft_add_value(t_stack **stack, int value)
 	if (!new_node)
 		return (0);
 	new_node->value = value;
+	new_node->index = -1;
 	new_node->next = *stack;
 	*stack = new_node;
 	return (1);
 }
 
-/*
-** Validate numbers and create stack_a in the original order.
-*/
-int	ft_create_stack(t_stack **stack_a, int argc, char **argv)
+int	ft_create_stack(t_stack **stack_a, int argc,
+		char **argv, int first_number)
 {
 	int	i;
 	int	value;
 
 	i = argc - 1;
-	while (i >= 2)
+	while (i >= first_number)
 	{
-		if (!ft_is_number(argv[i]) || !ft_is_int(argv[i]))
+		if (!ft_is_int(argv[i]))
 			return (0);
-		value = (int)ft_atoi(argv[i]);
+		value = ft_atoi(argv[i]);
 		if (!ft_add_value(stack_a, value))
 			return (0);
 		i--;
-	}
-	return (1);
-}
-
-/*
-** Validate strategy and all input numbers.
-*/
-int	ft_validate_input(int argc, char **argv, t_stack **stack_a)
-{
-	if (argc < 3)
-		return (0);
-	if (ft_check_strategy_selector(argv[1]) == 0)
-		return (0);
-	if (!ft_create_stack(stack_a, argc, argv))
-	{
-		ft_free_stack(stack_a);
-		return (0);
 	}
 	return (1);
 }

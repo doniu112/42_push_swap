@@ -14,10 +14,10 @@
 
 double	ft_compute_disorder(t_stack *a)
 {
-	t_stack	*first;
-	t_stack	*second;
-	int		mistakes;
-	int		total_pairs;
+	long long	mistakes;
+	long long	total_pairs;
+	t_stack		*first;
+	t_stack		*second;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -45,7 +45,7 @@ double	ft_compute_disorder(t_stack *a)
 // 	t_stack	*new;
 // 	t_stack	*last;
 // 	int		i;
-
+//
 // 	stack = NULL;
 // 	last = NULL;
 // 	i = 0;
@@ -65,7 +65,7 @@ double	ft_compute_disorder(t_stack *a)
 // 	}
 // 	return (stack);
 // }
-
+//
 // int	main(void)
 // {
 // 	t_stack *stack_a;
@@ -83,11 +83,11 @@ double	ft_compute_disorder(t_stack *a)
 //     144, 198, 16, 35, 5, 6, 130, 184, 89, 191,
 //     81, 96, 155, 13, 199, 73, 36, 60, 164, 157
 // 	};
-
+//
 // 	size = sizeof(numbers)/sizeof(numbers[0]);
 // 	stack_a = init_stack(numbers, size);
 // 	disorder = ft_compute_disorder(stack_a);
-	
+//
 // 	printf("disorder : %f", disorder);
 // 	free(stack_a);
 // 	return (0);

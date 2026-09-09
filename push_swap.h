@@ -42,10 +42,16 @@ typedef struct s_operations
 	int		rrr;
 	int		total_ops;
 	int		strategy;
-	float	disorder;
+	double	disorder;
 	bool	is_bench_on;
 	bool	is_adaptive;
 }	t_operations;
+
+typedef struct s_chunk
+{
+	int	start;
+	int	end;
+}	t_chunk;
 
 /* operations push */
 void	ft_pa(t_stack **stack_a, t_stack **stack_b, t_operations *op);
@@ -66,24 +72,40 @@ void	ft_sa(t_stack **stack_a, t_operations *op);
 void	ft_sb(t_stack **stack_b, t_operations *op);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b, t_operations *op);
 
+/* Input validation */
+int		ft_is_number(char *str);
+int		ft_is_int(char *str);
+int		ft_create_stack(t_stack **stack_a, int argc,
+			char **argv, int first_number);
+
 /* Simple sort */
 int		ft_stack_size(t_stack *stack);
 int		ft_find_min_position(t_stack *stack);
 void	ft_move_to_top(t_stack **a, t_operations *op);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_operations *op);
 
-/* Simple medium */
+/* Medium sort */
 void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op);
-int	ft_stack_size(t_stack *stack);
+int		ft_find_max_position(t_stack *stack);
 
-/* Simple complex */
-/* Simple adaptive */
+/* Complex sort */
+void	ft_radix_sort(t_stack **a, t_stack **b, t_operations *op);
+
+/* Adaptive sort */
 void	ft_adaptive_algorithm(t_stack **a, t_stack **b, t_operations *op);
 
 /* Bench */
+void	ft_bench(t_operations *op);
 
 /* UTILS */
 double	ft_compute_disorder(t_stack *a);
+void	ft_free_stack(t_stack **stack);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_print_error(t_stack **stack_a, t_stack **stack_b);
+void	ft_putchar_fd(char c, int fd);
+int		ft_strcmp(char *s1, char *s2);
+int		ft_atoi(const char *str);
 
 /* Defines */
 # define STRATEGY_ADAPTIVE 	0
@@ -92,19 +114,5 @@ double	ft_compute_disorder(t_stack *a);
 # define STRATEGY_COMPLEX 	3
 
 # define BENCH_MODE 		false
-
-/* Input validation */
-int		ft_check_strategy_selector(char *str, t_operations *op);
-int		ft_is_number(char *str);
-int		ft_is_int(char *str);
-int		ft_create_stack(t_stack **stack_a, int argc, char **argv);
-int		ft_validate_input(int argc, char **argv, t_stack **stack_a);
-
-/* Existing utility functions */
-long	ft_atoi(const char *str);
-void	ft_free_stack(t_stack **stack);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int	ft_strcmp(char *s1, char *s2);
 
 #endif

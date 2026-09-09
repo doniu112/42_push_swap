@@ -13,22 +13,6 @@
 #include "push_swap.h"
 
 /*
-** Return the number of elements in the stack.
-*/
-static int	ft_stack_size(t_stack *stack)
-{
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
-}
-
-/*
 ** Return the zero-based rank of a value in both stacks.
 */
 static int	ft_get_rank(t_stack *a, t_stack *b, int value)
@@ -51,22 +35,43 @@ static int	ft_get_rank(t_stack *a, t_stack *b, int value)
 	return (rank);
 }
 
-/*
-** Push one chunk from stack a to stack b.
-*/
+int	ft_find_max_position(t_stack *stack)
+{
+	int	max;
+	int	max_pos;
+	int	pos;
+
+	if (!stack)
+		return (-1);
+	max = stack->value;
+	max_pos = 0;
+	pos = 0;
+	while (stack)
+	{
+		if (stack->value > max)
+		{
+			max = stack->value;
+			max_pos = pos;
+		}
+		stack = stack->next;
+		pos++;
+	}
+	return (max_pos);
+}
+
 static void	ft_push_chunk(t_stack **a, t_stack **b,
-		int start, int end, t_operations *op)
+		t_chunk range, t_operations *op)
 {
 	int	rank;
 	int	pushed;
 	int	half;
 
 	pushed = 0;
-	half = start + (end - start + 1) / 2;
-	while (*a && pushed < end - start + 1)
+	half = range.start + (range.end - range.start + 1) / 2;
+	while (*a && pushed < range.end - range.start + 1)
 	{
 		rank = ft_get_rank(*a, *b, (*a)->value);
-		if (rank >= start && rank <= end)
+		if (rank >= range.start && rank <= range.end)
 		{
 			ft_pb(a, b, op);
 			pushed++;
@@ -78,52 +83,57 @@ static void	ft_push_chunk(t_stack **a, t_stack **b,
 	}
 }
 
-/*
-** Move the largest element of stack b to the top.
-*/
-static void	ft_rotate_max(t_stack **a, t_stack **b, t_operations *op)
+static void	ft_rotate_max(t_stack **b, t_operations *op)
 {
-	int	rank;
+	int	pos;
 	int	size;
 
+	if (!b || !*b)
+		return ;
+	pos = ft_find_max_position(*b);
 	size = ft_stack_size(*b);
-	while (*b)
+	if (pos <= size / 2)
 	{
-		rank = ft_get_rank(*a, *b, (*b)->value);
-		if (rank == size - 1)
-			break ;
-		ft_rb(b, op);
+		while (pos > 0)
+		{
+			ft_rb(b, op);
+			pos--;
+		}
+	}
+	else
+	{
+		while (pos < size)
+		{
+			ft_rrb(b, op);
+			pos++;
+		}
 	}
 }
 
-/*
-** Sort stack a using sqrt(n) value chunks.
-*/
 void	ft_medium_algorithm(t_stack **a, t_stack **b, t_operations *op)
 {
-	int	size;
-	int	chunk;
-	int	start;
-	int	end;
-	op->disorder = ft_compute_disorder(a);
+	t_chunk	range;
+	int		size;
+	int		chunk;
+
 	size = ft_stack_size(*a);
 	if (size < 2)
 		return ;
 	chunk = 1;
 	while (chunk * chunk < size)
 		chunk++;
-	start = 0;
-	while (start < size)
+	range.start = 0;
+	while (range.start < size)
 	{
-		end = start + chunk - 1;
-		if (end >= size)
-			end = size - 1;
-		ft_push_chunk(a, b, start, end, op);
-		start += chunk;
+		range.end = range.start + chunk - 1;
+		if (range.end >= size)
+			range.end = size - 1;
+		ft_push_chunk(a, b, range, op);
+		range.start += chunk;
 	}
 	while (*b)
 	{
-		ft_rotate_max(a, b, op);
+		ft_rotate_max(b, op);
 		ft_pa(a, b, op);
 	}
 }

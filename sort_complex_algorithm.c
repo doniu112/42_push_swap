@@ -12,42 +12,58 @@
 
 #include "push_swap.h"
 
-void	ft_index_assign(t_stack *stack_a)
+static void	ft_index_assign(t_stack *a)
 {
-	int	smaller_values;
-	int	value;
+	t_stack	*current;
+	t_stack	*other;
 
-	while ()
+	current = a;
+	while (current)
 	{
-		if ()
+		current->index = 0;
+		other = a;
+		while (other)
+		{
+			if (other->value < current->value)
+				current->index++;
+			other = other->next;
+		}
+		current = current->next;
 	}
 }
 
-void	ft_radix_sort(t_stack *stack_a, t_stack *stack_b, t_operations *op)
+static void	ft_radix_pass(t_stack **a, t_stack **b,
+		t_operations *op, int bit)
 {
-	int	size;
-	int	bit;
-	int	max_bits;
-	int	i;
+	int	remaining;
 
-	size = ft_stack_size(stack_a);
-	max_bits = 0;
-	while ((size - 1) >> max_bits)
-		max_bits++;
-	bit = 0;
-	while (bit < max_bits)
+	remaining = ft_stack_size(*a);
+	while (remaining > 0)
 	{
-		i = 0;
-		while (i < size)
-		{
-			if ((((stack_a)->index >> bit) & 1) == 0)
-				ft_pb(stack_a, stack_b, op);
-			else
-				ft_ra(stack_a, op);
-			i++;
-		}
-		while (stack_b)
-			ft_pa(stack_a, stack_b, op);
+		if ((((*a)->index >> bit) & 1) == 0)
+			ft_pb(a, b, op);
+		else
+			ft_ra(a, op);
+		remaining--;
+	}
+	while (*b)
+		ft_pa(a, b, op);
+}
+
+void	ft_radix_sort(t_stack **a, t_stack **b, t_operations *op)
+{
+	int	max_index;
+	int	bit;
+
+	if (!a || !b || !*a || !(*a)->next)
+		return ;
+	ft_index_assign(*a);
+	max_index = ft_stack_size(*a) - 1;
+	bit = 0;
+	while (max_index > 0)
+	{
+		ft_radix_pass(a, b, op, bit);
+		max_index >>= 1;
 		bit++;
 	}
 }

@@ -12,6 +12,11 @@
 *.env
 *.out
 a.out
+test.py
+test_report.json
+args.txt
+checker_linux
+.vscode/*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -433,3 +438,4 @@ FodyWeavers.xsd
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
 a.out
+args.txt

@@ -16,15 +16,19 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
-	   input_validation.c \
-	   push_swap_utils.c \
-	   ft_push.c \
-	   ft_reverse_rotate.c \
-	   ft_rotate.c \
-	   ft_swap.c \
-	   disorder_metric.c \
-	   sort_medium_algorithm.c \
-	   sort_custom_adaptive_algorithm.c
+	input_validation.c \
+	push_swap_utils.c \
+	ft_push.c \
+	ft_reverse_rotate.c \
+	ft_rotate.c \
+	ft_swap.c \
+	disorder_metric.c \
+	sort_medium_algorithm.c \
+	sort_custom_adaptive_algorithm.c \
+	sorting_utils.c \
+	ft_bench.c \
+	sort_simple_algorithm.c \
+	sort_complex_algorithm.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -33,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

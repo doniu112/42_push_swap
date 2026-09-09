@@ -12,29 +12,12 @@
 
 #include "push_swap.h"
 
-void	ft_free_stack(t_stack **stack)
+int	ft_atoi(const char *str)
 {
-	t_stack	*current;
-	t_stack	*next;
+	long long	number;
+	int			sign;
 
-	if (stack == NULL || *stack == NULL)
-		return ;
-	current = *stack;
-	while (current != NULL)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*stack = NULL;
-}
-
-long	ft_atoi(const char *str)
-{
-	long	num;
-	int		sign;
-
-	num = 0;
+	number = 0;
 	sign = 1;
 	if (*str == '-' || *str == '+')
 	{
@@ -44,52 +27,39 @@ long	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		num = num * 10 + (*str - '0');
+		number = number * 10 + (*str - '0');
 		str++;
 	}
-	return (num * sign);
+	return ((int)(number * sign));
 }
 
-void        ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-        while (*s)
-        {
-                write(fd, s, 1);
-                s++;
-        }
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }
 
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putstr_fd('-', fd);
-		n *= -1;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putstr_fd(n % 10 + '0', fd);
-	}
-	else
-		ft_putstr_fd(n + '0', fd);
-}
+	long long	number;
 
-/*
-** Print the required error message and exit.
-*/
-static void	ft_print_error(t_stack **stack_a, t_stack **stack_b)
-{
-	write(2, "Error\n", 6);
-	ft_free_stack(stack_a);
-	ft_free_stack(stack_b);
-	exit(1);
+	number = n;
+	if (number < 0)
+	{
+		ft_putchar_fd('-', fd);
+		number = -number;
+	}
+	if (number >= 10)
+		ft_putnbr_fd(number / 10, fd);
+	ft_putchar_fd((number % 10) + '0', fd);
 }
 
 int	ft_strcmp(char *s1, char *s2)
