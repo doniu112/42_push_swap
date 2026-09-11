@@ -58,7 +58,7 @@ int	ft_is_int(char *str)
 /*
 ** Check for duplicates and add the value to the top of the stack.
 */
-static int	ft_add_value(t_stack **stack, int value)
+int	ft_add_value(t_stack **stack, int value)
 {
 	t_stack	*current;
 	t_stack	*new_node;
@@ -84,15 +84,11 @@ int	ft_create_stack(t_stack **stack_a, int argc,
 		char **argv, int first_number)
 {
 	int	i;
-	int	value;
 
 	i = argc - 1;
 	while (i >= first_number)
 	{
-		if (!ft_is_int(argv[i]))
-			return (0);
-		value = ft_atoi(argv[i]);
-		if (!ft_add_value(stack_a, value))
+		if (!ft_add_argument(stack_a, argv[i]))
 			return (0);
 		i--;
 	}

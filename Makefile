@@ -28,7 +28,8 @@ SRCS = push_swap.c \
 	sorting_utils.c \
 	ft_bench.c \
 	sort_simple_algorithm.c \
-	sort_complex_algorithm.c
+	sort_complex_algorithm.c \
+	input_arguments.c
 
 OBJS = $(SRCS:.c=.o)
 

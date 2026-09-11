@@ -77,6 +77,8 @@ int		ft_is_number(char *str);
 int		ft_is_int(char *str);
 int		ft_create_stack(t_stack **stack_a, int argc,
 			char **argv, int first_number);
+int		ft_add_value(t_stack **stack, int value);
+int		ft_add_argument(t_stack **stack, char *str);
 
 /* Simple sort */
 int		ft_stack_size(t_stack *stack);
