@@ -36,6 +36,7 @@ int	ft_is_int(char *str)
 {
 	long long	number;
 	long long	limit;
+	int			digit;
 
 	if (!ft_is_number(str))
 		return (0);
@@ -47,9 +48,10 @@ int	ft_is_int(char *str)
 	number = 0;
 	while (*str)
 	{
-		number = number * 10 + (*str - '0');
-		if (number > limit)
+		digit = *str - '0';
+		if (number > (limit - digit) / 10)
 			return (0);
+		number = number * 10 + digit;
 		str++;
 	}
 	return (1);
