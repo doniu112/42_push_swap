@@ -12,7 +12,6 @@
 *.env
 *.out
 a.out
-test.py
 test_report.json
 args.txt
 checker_linux
